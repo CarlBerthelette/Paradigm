@@ -118,3 +118,61 @@ function myFunction() {
    navbar.className = navbar.className.replace(" w3-card-2 w3-animate-top w3-white", "");
  }
 }
+
+
+
+if ((typeof window.DG) == 'undefined') {
+	window.DG = {};
+  }
+  
+  DG.ZoomImg = (id, id2) => {
+	 const modal = document.getElementById("modal01");
+  
+	const img = document.getElementById(id);
+	const modalImg = document.getElementById(id2);
+  
+	img.onclick = function() {
+	  modal.style.display = "block";
+	  modalImg.src = this.src;
+	}
+  
+	const close = document.getElementsByClassName("dg-iz-close")[0];
+  
+	close.onclick = () => {
+	  modal.style.display = "none";
+	}
+  }
+  
+  DG.ZoomImg("ZoomImg-1","img01");
+
+  
+  
+  function displayAllImages() {
+    var imgArray = [
+      "ZoomImg-1",
+      "ZoomImg-1",
+      "ZoomImg-1",
+      "ZoomImg-1",
+      "ZoomImg-1",
+      "ZoomImg-1",
+      "ZoomImg-1",
+      "ZoomImg-1",
+    ];
+  
+    var domElements = imgArray.map(function(imgName, index) {
+      var cardDiv = document.createElement('div');
+      var cardLink = document.createElement('a');
+      var cardImage = document.createElement('img');
+  
+      cardDiv.classList.add('card');
+
+      cardLink.dataset.lightbox = imgName;
+
+      cardLink.appendChild(cardImage);
+      cardDiv.appendChild(cardLink);
+  
+      return cardDiv;
+  
+    });
+
+  }
